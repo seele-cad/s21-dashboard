@@ -106,6 +106,7 @@ def bar_1796(df):
     count1 = df[df["warenausgang_hinweise"].str.contains("RLA")==True].shape[0]
     count.append(count1)
     count2 = df_1796[df_1796["warenausgang_hinweise"].str.contains("RLA")==False].shape[0]
+    count2 += df[df["warenausgang_hinweise"].isnull()].shape[0]
     count.append(count2)
 
     
