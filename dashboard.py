@@ -65,9 +65,3 @@ with col2:
     st.write(fig2)
 
 
-# top-level filter
-def set_filter():
-    filter_ = st.selectbox("Wähle RLA", (["RLA 01", "RLA 02", "RLA 03", "RLA 04", "RLA 05", "RLA 06", "RLA 07", "RLA 08", "RLA 09", "RLA 10", "RLA 11", "RLA 12", "RLA 13", "RLA 14", "RLA 15", "RLA 16", "RLA 17", "RLA 18", "RLA 19", "RLA 20", "RLA 21", "RLA 22", "RLA 23"]))
-    return filter_
-
-filter_ = set_filter()
