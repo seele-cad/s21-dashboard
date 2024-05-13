@@ -137,7 +137,7 @@ def plz(df):
     
     return df_plz
 
-def installed():
+def installed(df):
 
     df_installed = df[df['status']=='installed']
     df_installed['date_installed']=pd.to_datetime(df_installed['date_installed'])
@@ -149,7 +149,7 @@ def installed():
 
     return df_hist
 
-def warehouse():
+def warehouse(df):
 
     df_warehouse = df[df['status']=='warehouse']
     df_warehouse['date_warehouse']=pd.to_datetime(df_warehouse['date_warehouse'], format='%d.%m.%Y')
@@ -161,7 +161,7 @@ def warehouse():
 
     return df_ware
 
-def onsite():
+def onsite(df):
 
     df_onsite = df[df['status']=='onsite']
     df_onsite['date_onsite']=pd.to_datetime(df_onsite['date_onsite'], format='%d.%m.%Y')
