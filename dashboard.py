@@ -47,7 +47,9 @@ st.write(
         y='anzahl_lieferscheine',
         color='status',
         text='anzahl_lieferscheine',
-        title='Lieferscheine der Regellichtaugen nach Status'
+        title='Lieferscheine der Regellichtaugen nach Status',
+        width=1700,
+        height=600
         )
 )
 
