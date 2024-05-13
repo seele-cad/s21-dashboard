@@ -74,7 +74,9 @@ if status == 'installed':
             x='week_installed',
             y='anzahl_lieferscheine',
             text='anzahl_lieferscheine',
-            title='Anzahl Installationen nach Lieferscheinen & Woche'
+            title='Anzahl Installationen nach Lieferscheinen & Woche',
+            width=1700,
+            height=600
             )
     )
 
@@ -86,7 +88,9 @@ elif status == 'onsite':
             x='week_onsite',
             y='anzahl_lieferscheine',
             text='anzahl_lieferscheine',
-            title='Anzahl onsite-Buchungen nach Lieferscheinen & Woche'
+            title='Anzahl onsite-Buchungen nach Lieferscheinen & Woche',
+            width=1700,
+            height=600
             )
     )
 elif status == 'warehouse':
@@ -97,7 +101,9 @@ elif status == 'warehouse':
             x='week_warehouse',
             y='anzahl_lieferscheine',
             text='anzahl_lieferscheine',
-            title='Anzahl warehouse-Buchungen nach Lieferscheinen & Woche'
+            title='Anzahl warehouse-Buchungen nach Lieferscheinen & Woche',
+            width=1700,
+            height=600
         )
     )
 
