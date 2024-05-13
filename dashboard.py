@@ -39,7 +39,17 @@ fig0 = px.bar(
     )
 st.write(fig0)
 
-df_bar2 = 
+df_bar2 = lieferschein(df)
+st.write(
+    px.bar(
+        df_bar2, 
+        x='rla_nummer',
+        y='anzahl_lieferscheine',
+        color='status',
+        text='anzahl_lieferscheine',
+        title='Lieferscheine der Regellichtaugen nach Status'
+        )
+)
 
 col1, col2 = st.columns(2)
 
