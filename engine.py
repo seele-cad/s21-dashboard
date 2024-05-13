@@ -72,7 +72,7 @@ def format_rcom_data(objects,bins=None):
 
 
 
-def build_frame(df):
+def gewicht(df):
 
     rlas = ["RLA 01", "RLA 02", "RLA 03", "RLA 04", "RLA 05", "RLA 06", "RLA 07", "RLA 08", "RLA 09", "RLA 10", "RLA 11", "RLA 12", "RLA 13", "RLA 14", "RLA 15", "RLA 16", "RLA 17", "RLA 18", "RLA 19", "RLA 20", "RLA 21", "RLA 22", "RLA 23"]
     rla_new = []
@@ -95,6 +95,33 @@ def build_frame(df):
     
     df_bar = pd.DataFrame.from_dict(diBar)
     
+    return df_bar
+
+def lieferschein(df):
+
+    rlas = ["RLA 01", "RLA 02", "RLA 03", "RLA 04", "RLA 05", "RLA 06", "RLA 07", "RLA 08", "RLA 09", "RLA 10", "RLA 11", "RLA 12", "RLA 13", "RLA 14", "RLA 15", "RLA 16", "RLA 17", "RLA 18", "RLA 19", "RLA 20", "RLA 21", "RLA 22", "RLA 23"]
+    rla_new = []
+    status = ['readytoship','shipped','warehouse', 'onsite', 'installed']
+    status_new =[]
+    count_ls = []
+
+    for rla in rlas: 
+        for stat in status:
+            df_filtered = df[df["warenausgang_hinweise"].str.contains(rla)==True]
+            df_filtered = df_filtered[df_filtered["status"]==stat]
+            count = df_filtered['warenausgang_gewicht'].shape[0]
+            count_ls.append(count)
+            rla_new.append(rla)
+            status_new.append(stat)
+    
+    diBar = {
+    'rla_nummer': rla_new,
+    'status': status_new,
+    'anzahl_lieferscheine': count_ls
+    }   
+
+    df_bar = pd.DataFrame.from_dict(diBar)
+
     return df_bar
 
 def bar_1796(df):
