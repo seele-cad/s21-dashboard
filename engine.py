@@ -137,5 +137,32 @@ def plz(df):
     
     return df_plz
 
+def installed():
+
+    df_installed = df[df['status']=='installed']
+    df_installed['date_installed']=pd.to_datetime(df_installed['date_installed'])
+    df_installed.reset_index(drop=True, inplace=True)
+    df_installed.set_index('date_installed', inplace=True)
+
+    return df_installed
+
+def warehouse():
+
+    df_warehouse = df[df['status']=='warehouse']
+    df_warehouse['date_warehouse']=pd.to_datetime(df_warehouse['date_warehouse'], format='%d.%m.%Y')
+    df_warehouse.reset_index(drop=True, inplace=True)
+    df_warehouse.set_index('date_warehouse', inplace=True)
+
+    return df_warehouse
+
+def onsite():
+
+    df_onsite = df[df['status']=='onsite']
+    df_onsite['date_onsite']=pd.to_datetime(df_onsite['date_onsite'], format='%d.%m.%Y')
+    df_onsite.reset_index(drop=True, inplace=True)
+    df_onsite.set_index('date_onsite', inplace=True)
+
+    return df_onsite
+
 token = basic_auth(USER, PASSWORD)
 
