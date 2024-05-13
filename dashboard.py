@@ -34,6 +34,7 @@ fig0 = px.bar(
     x='RLA_Nummer',
     y='Material_kg',
     color='Status',
+    text='Material_kg',
     width=1700,
     height=600
     )
