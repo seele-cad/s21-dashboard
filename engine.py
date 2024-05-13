@@ -143,8 +143,11 @@ def installed():
     df_installed['date_installed']=pd.to_datetime(df_installed['date_installed'])
     df_installed.reset_index(drop=True, inplace=True)
     df_installed.set_index('date_installed', inplace=True)
+    df_hist = df_installed['lieferschein'].resample('W').count().to_frame()
+    df_hist.reset_index(inplace=True)
+    df_hist.rename(columns={'date_installed': 'week_installed', 'lieferschein': 'anzahl_lieferscheine'}, inplace=True)
 
-    return df_installed
+    return df_hist
 
 def warehouse():
 
@@ -152,8 +155,11 @@ def warehouse():
     df_warehouse['date_warehouse']=pd.to_datetime(df_warehouse['date_warehouse'], format='%d.%m.%Y')
     df_warehouse.reset_index(drop=True, inplace=True)
     df_warehouse.set_index('date_warehouse', inplace=True)
+    df_ware = df_warehouse['lieferschein'].resample('W').count().to_frame()
+    df_ware.reset_index(inplace=True)
+    df_ware.rename(columns={'date_warehouse': 'week_warehouse', 'lieferschein': 'anzahl_lieferscheine'}, inplace=True)
 
-    return df_warehouse
+    return df_ware
 
 def onsite():
 
@@ -161,6 +167,9 @@ def onsite():
     df_onsite['date_onsite']=pd.to_datetime(df_onsite['date_onsite'], format='%d.%m.%Y')
     df_onsite.reset_index(drop=True, inplace=True)
     df_onsite.set_index('date_onsite', inplace=True)
+    df_onsite = df_onsite['lieferschein'].resample('W').count().to_frame()
+    df_onsite.reset_index(inplace=True)
+    df_onsite.rename(columns={'date_onsite': 'week_onsite', 'lieferschein': 'anzahl_lieferscheine'}, inplace=True)
 
     return df_onsite
 
