@@ -67,7 +67,7 @@ with col2:
 status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
 
 if status == 'installed':
-    df_hist = installed(df)
+    df_hist = installed()
     st.write(
         px.bar(
             df_hist,
@@ -79,7 +79,7 @@ if status == 'installed':
     )
 
 elif status == 'onsite':
-    df_onsite = onsite(df)
+    df_onsite = onsite()
     st.write(
         px.bar(
             df_onsite,
@@ -90,7 +90,7 @@ elif status == 'onsite':
             )
     )
 elif status == 'warehouse':
-    df_ware = warehouse(df)
+    df_ware = warehouse()
     st.write(
         px.bar(
             df_ware,
