@@ -64,4 +64,5 @@ with col2:
     ).update_traces(textinfo='value')
     st.write(fig2)
 
+status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
 
