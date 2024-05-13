@@ -66,3 +66,43 @@ with col2:
 
 status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
 
+if status == 'installed':
+    df_hist = installed(df)
+    st.write(
+        px.bar(
+            df_hist,
+            x='week_installed',
+            y='anzahl_lieferscheine',
+            text='anzahl_lieferscheine',
+            title='Anzahl Installationen nach Lieferscheinen & Woche'
+            )
+    )
+
+elif status == 'onsite':
+    df_onsite = onsite(df)
+    st.write(
+        px.bar(
+            df_onsite,
+            x='week_onsite',
+            y='anzahl_lieferscheine',
+            text='anzahl_lieferscheine',
+            title='Anzahl onsite-Buchungen nach Lieferscheinen & Woche'
+            )
+    )
+elif status == 'warehouse':
+    df_ware = warehouse(df)
+    st.write(
+        px.bar(
+            df_ware,
+            x='week_warehouse',
+            y='anzahl_lieferscheine',
+            text='anzahl_lieferscheine',
+            title='Anzahl warehouse-Buchungen nach Lieferscheinen & Woche'
+        )
+    )
+
+else: None
+            
+
+            
+
