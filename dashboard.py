@@ -28,7 +28,7 @@ st.title("S21 - Dashboard")
 
 
 # create general chart
-df_bar = build_frame(df)
+df_bar = gewicht(df)
 fig0 = px.bar(
     df_bar, 
     x='RLA_Nummer',
@@ -38,6 +38,8 @@ fig0 = px.bar(
     height=600
     )
 st.write(fig0)
+
+df_bar2 = 
 
 col1, col2 = st.columns(2)
 
