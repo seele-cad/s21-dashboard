@@ -134,7 +134,7 @@ elif status == 'warehouse':
             title='Anzahl warehouse-Buchungen nach Lieferscheinen & Woche',
             width=1700,
             height=600,
-            color=None
+            color='anzahl_lieferscheine'
         )
     )
 
