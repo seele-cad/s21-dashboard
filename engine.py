@@ -200,7 +200,7 @@ def onsite(df):
 
     return df_onsite
 
-def gate():
+def gate(df):
 
     _type = ['Handheld', 'Gate']
     _count = []
