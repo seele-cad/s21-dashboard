@@ -143,7 +143,7 @@ elif status == 'shipped':
     df_shipped = shipped(df)
     st.write(
         px.bar(
-            df_ware,
+            df_shipped,
             x='week_shipped',
             y='anzahl_lieferscheine',
             text='anzahl_lieferscheine',
