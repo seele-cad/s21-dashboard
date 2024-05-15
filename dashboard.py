@@ -54,7 +54,7 @@ st.write(
         )
 )
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     df_bar1796 = bar_1796(df)
@@ -78,6 +78,9 @@ with col2:
     title='Lieferscheine Standort Projekt 1796'
     ).update_traces(textinfo='value')
     st.write(fig2)
+
+with col3:
+    
 
 status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
 
