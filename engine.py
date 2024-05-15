@@ -164,6 +164,18 @@ def plz(df):
     
     return df_plz
 
+def shipped(df):
+
+    df_shipped = df[df['status']=='shipped']
+    df_shipped['date_shipped']=pd.to_datetime(df_shipped['date_shipped'])
+    df_shipped.reset_index(drop=True, inplace=True)
+    df_shipped.set_index('date_shipped', inplace=True)
+    df_shipped = df_installed['lieferschein'].resample('W').count().to_frame()
+    df_shipped.reset_index(inplace=True)
+    df_shipped.rename(columns={'date_shipped': 'week_shipped', 'lieferschein': 'anzahl_lieferscheine'}, inplace=True)
+
+    return df_shipped
+
 def installed(df):
 
     df_installed = df[df['status']=='installed']
