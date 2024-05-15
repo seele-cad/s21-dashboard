@@ -167,7 +167,7 @@ def plz(df):
 def shipped(df):
 
     df_shipped = df[df['status']=='shipped']
-    df_shipped['date_shipped']=pd.to_datetime(df_shipped['date_shipped'])
+    df_shipped['date_shipped']=pd.to_datetime(df_shipped['date_shipped'], format='%d.%m.%Y')
     df_shipped.reset_index(drop=True, inplace=True)
     df_shipped.set_index('date_shipped', inplace=True)
     df_shipped = df_installed['lieferschein'].resample('W').count().to_frame()
