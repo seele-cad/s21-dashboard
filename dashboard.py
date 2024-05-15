@@ -80,6 +80,16 @@ with col2:
     st.write(fig2)
 
 with col3:
+    df_gate = gate(df)
+    st.write(
+        px.pie(
+        df_gate,
+        values='Count',
+        names='Type',
+        labels='Type',
+        title='Erfassung Lieferscheine'
+        ).update_traces(textinfo='value')
+    )
     
 
 status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
