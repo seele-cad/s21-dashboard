@@ -88,7 +88,7 @@ with col3:
         values='Count',
         names='Type',
         labels='Type',
-        title='Erfassung Lieferscheine',
+        title='Lieferschein Erfassung',
             width=400
         ).update_traces(textinfo='value')
     )
