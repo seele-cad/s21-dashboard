@@ -106,7 +106,8 @@ if status == 'installed':
             text='anzahl_lieferscheine',
             title='Anzahl Installationen nach Lieferscheinen & Woche',
             width=1700,
-            height=600
+            height=600,
+            color='anzahl_lieferscheine'
             )
     )
 
@@ -120,7 +121,8 @@ elif status == 'onsite':
             text='anzahl_lieferscheine',
             title='Anzahl onsite-Buchungen nach Lieferscheinen & Woche',
             width=1700,
-            height=600
+            height=600,
+            color='anzahl_lieferscheine'
             )
     )
 elif status == 'warehouse':
