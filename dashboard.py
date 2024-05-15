@@ -75,7 +75,8 @@ with col2:
     values='counts',
     names='plz',
     labels='plz',
-    title='Lieferscheine Standort Projekt 1796'
+    title='Lieferscheine Standort Projekt 1796',
+    width=400
     ).update_traces(textinfo='value')
     st.write(fig2)
 
@@ -87,7 +88,8 @@ with col3:
         values='Count',
         names='Type',
         labels='Type',
-        title='Erfassung Lieferscheine'
+        title='Erfassung Lieferscheine',
+            width=400
         ).update_traces(textinfo='value')
     )
     
