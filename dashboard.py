@@ -139,6 +139,20 @@ elif status == 'warehouse':
             color='anzahl_lieferscheine'
         )
     )
+elif status == 'shipped':
+    df_shipped = shipped(df)
+    st.write(
+        px.bar(
+            df_ware,
+            x='week_shipped',
+            y='anzahl_lieferscheine',
+            text='anzahl_lieferscheine',
+            title='Anzahl shipped-Buchungen nach Lieferscheinen & Woche',
+            width=1700,
+            height=600,
+            color='anzahl_lieferscheine'
+        )
+    )
 
 else: None
             
