@@ -200,5 +200,22 @@ def onsite(df):
 
     return df_onsite
 
+def gate():
+
+    _type = ['Handheld', 'Gate']
+    _count = []
+
+    _count.append(df[df['warehouse_lager'].isnull()].shape[0])
+    _count.append(df[df['warehouse_lager'].str.contains('Gate')==True].shape[0])
+
+    dic_gate = {
+        'Type': _type,
+        'Count': _count
+        }
+
+    df_gate = pd.DataFrame.from_dict(dic_gate)
+
+    return df_gate
+
 token = basic_auth(USER, PASSWORD)
 
