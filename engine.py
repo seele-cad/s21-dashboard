@@ -83,8 +83,8 @@ def gewicht(df):
         for stat in status:
             df_filtered = df[df["warenausgang_hinweise"].str.contains(rla)==True]
             df_filtered = df_filtered[df_filtered["status"]==stat]
-            weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum().round()
-            weights.append(weight)
+            weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum()
+            weights.append(np.round(weight))
             rla_new.append(rla)
             status_new.append(stat)
 
@@ -240,8 +240,8 @@ def kg(df):
         for stat in status:
             df_filtered = df[df["warenausgang_auftrag"].str.contains(a)==True]
             df_filtered = df_filtered[df_filtered["status"]==stat]
-            weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum().round()
-            weights.append(weight)
+            weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum()
+            weights.append(np.round(weight))
             an.append(a)
             status_new.append(stat)
 
