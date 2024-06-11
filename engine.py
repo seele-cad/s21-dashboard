@@ -229,5 +229,60 @@ def gate(df):
 
     return df_gate
 
+def kg(df):
+
+    auftraege = ['R', 'F', 'G', 'A', 'M']
+    an = []
+    status = ['warehouse', 'readytoship', 'onsite', 'shipped', 'installed']
+    status_new =[]
+    weights = []
+    for a in auftraege: 
+        for stat in status:
+            df_filtered = df[df["warenausgang_hinweise"].str.contains(a)==True]
+            df_filtered = df_filtered[df_filtered["status"]==stat]
+            weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum()
+            weights.append(weight)
+            an.append(a)
+            status_new.append(stat)
+
+    diBar = {
+        'Auftrag': an,
+        'Status': status_new,
+        'Material_kg': weights}
+    
+    df_bar = pd.DataFrame.from_dict(diBar)
+    
+    return df_bar
+
+def waa(df):
+
+    contracts=['R', 'F', 'G', 'A', 'M']
+    auftrag_new = []
+    status = ['readytoship','shipped','warehouse', 'onsite', 'installed']
+    status_new =[]
+    count_ls = []
+
+    for c in contracts: 
+        for stat in status:
+            df_filtered = df[df["warenausgang_auftrag"].str.contains(c)==True]
+            df_filtered = df_filtered[df_filtered["status"]==stat]
+            count = df_filtered['warenausgang_gewicht'].shape[0]
+            count_ls.append(count)
+            auftrag_new.append(c)
+            status_new.append(stat)
+    
+    diBar = {
+    'auftrag': auftrag_new,
+    'status': status_new,
+    'anzahl_lieferscheine': count_ls
+    }   
+
+    df_bar = pd.DataFrame.from_dict(diBar)
+
+    return df_bar
+    
+
+
+
 token = basic_auth(USER, PASSWORD)
 
