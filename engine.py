@@ -76,7 +76,7 @@ def gewicht(df):
 
     rlas = ["RLA 01", "RLA 02", "RLA 03", "RLA 04", "RLA 05", "RLA 06", "RLA 07", "RLA 08", "RLA 09", "RLA 10", "RLA 11", "RLA 12", "RLA 13", "RLA 14", "RLA 15", "RLA 16", "RLA 17", "RLA 18", "RLA 19", "RLA 20", "RLA 21", "RLA 22", "RLA 23"]
     rla_new = []
-    status = ['warehouse', 'readytoship', 'onsite', 'shipped', 'installed']
+    status = ['readytoship','shipped','warehouse', 'onsite', 'installed']
     status_new =[]
     weights = []
     for rla in rlas: 
@@ -233,7 +233,7 @@ def kg(df):
 
     auftraege = ['R', 'F', 'G', 'A', 'M']
     an = []
-    status = ['warehouse', 'readytoship', 'onsite', 'shipped', 'installed']
+    status = ['readytoship','shipped','warehouse', 'onsite', 'installed']
     status_new =[]
     weights = []
     for a in auftraege: 
