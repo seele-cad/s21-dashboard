@@ -158,7 +158,7 @@ else: None
 
 sb=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
 
-if sb=='Einheit':
+if sb=='Anzahl_Lieferscheine':
     ls=waa(df)
     st.write(
         px.bar(
@@ -167,7 +167,7 @@ if sb=='Einheit':
         y='anzahl_lieferscheine',
         color='status',
         text='anzahl_lieferscheine',
-        title='Lieferscheine der Regellichtaugen nach Status',
+        title='Projekt nach Anzahl_Lieferscheine',
         width=800
         )
     )
@@ -181,7 +181,8 @@ else:
         color='Status',
         text='Material_kg',
         width=800,
-        height=600
+        height=600,
+        title='Projekt nach Gewicht in kg'
         )
     )
 
