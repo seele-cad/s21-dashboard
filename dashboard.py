@@ -155,7 +155,33 @@ elif status == 'shipped':
     )
 
 else: None
-            
 
-            
+sb=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
+
+if sb=='Einheit':
+    ls=waa(df)
+    st.write(
+        px.bar(
+        ls, 
+        x='auftrag',
+        y='anzahl_lieferscheine',
+        color='status',
+        text='anzahl_lieferscheine',
+        title='Lieferscheine der Regellichtaugen nach Status',
+        width=800
+        )
+    )
+else:
+    kg=kg(df)
+    st.write(
+        px.bar(
+        kg, 
+        x='Auftrag',
+        y='Material_kg',
+        color='Status',
+        text='Material_kg',
+        width=800,
+        height=600
+        )
+    )
 
