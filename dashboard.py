@@ -168,7 +168,8 @@ if sb=='Anzahl_Lieferscheine':
         color='status',
         text='anzahl_lieferscheine',
         title='Projekt nach Anzahl_Lieferscheine',
-        width=800
+        width=1700,
+        height=600
         )
     )
 else:
@@ -180,7 +181,7 @@ else:
         y='Material_kg',
         color='Status',
         text='Material_kg',
-        width=800,
+        width=1700,
         height=600,
         title='Projekt nach Gewicht in kg'
         )
