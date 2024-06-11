@@ -238,7 +238,7 @@ def kg(df):
     weights = []
     for a in auftraege: 
         for stat in status:
-            df_filtered = df[df["warenausgang_hinweise"].str.contains(a)==True]
+            df_filtered = df[df["warenausgang_auftrag"].str.contains(a)==True]
             df_filtered = df_filtered[df_filtered["status"]==stat]
             weight = df_filtered['warenausgang_gewicht'].apply(pd.to_numeric).sum()
             weights.append(weight)
