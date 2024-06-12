@@ -64,16 +64,16 @@ if sb2=='nach Gewicht':
 df_bar = gewicht(df)
     st.write(
         px.bar(
-        df_bar, 
-        x='RLA_Nummer',
-        y='Material_kg',
-        color='Status',
-        text='Material_kg',
-        title='Lieferscheine der Regellichtaugen nach Status und Gewicht',
-        width=1700,
-        height=600
+            df_bar, 
+            x='RLA_Nummer',
+            y='Material_kg',
+            color='Status',
+            text='Material_kg',
+            title='Lieferscheine der Regellichtaugen nach Status und Gewicht',
+            width=1700,
+            height=600
+            )
         )
-    )
 
 else:
     df_bar2 = lieferschein(df)
