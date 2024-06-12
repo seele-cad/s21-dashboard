@@ -26,6 +26,36 @@ df.reset_index(drop=True, inplace=True)
 # dashboard title
 st.title("S21 - Dashboard")
 
+sb=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
+
+if sb=='Anzahl_Lieferscheine':
+    ls=waa(df)
+    st.write(
+        px.bar(
+        ls, 
+        x='Projekt',
+        y='Anzahl_Lieferscheine',
+        color='Status',
+        text='Anzahl_Lieferscheine',
+        title='Projekt nach Anzahl_Lieferscheine',
+        width=850,
+        height=600
+        )
+    )
+else:
+    kg=kg(df)
+    st.write(
+        px.bar(
+        kg, 
+        x='Projekt',
+        y='Material_kg',
+        color='Status',
+        text='Material_kg',
+        width=850,
+        height=600,
+        title='Projekt nach Gewicht in kg'
+        )
+    )
 
 # create general chart
 df_bar = gewicht(df)
