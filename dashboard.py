@@ -61,7 +61,7 @@ else:
 sb2=st.selectbox('Darstellung', ['nach Gewicht','nach Anzahl_Lieferscheine']) 
 
 if sb2=='nach Gewicht':
-df_bar = gewicht(df)
+    df_bar = gewicht(df)
     st.write(
         px.bar(
             df_bar, 
