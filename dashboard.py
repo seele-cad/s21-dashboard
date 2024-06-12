@@ -57,38 +57,6 @@ else:
         )
     )
 
-# create general chart
-sb2=st.selectbox('Darstellung', ['nach Gewicht','nach Anzahl_Lieferscheine']) 
-
-if sb2=='nach Gewicht':
-    df_bar = gewicht(df)
-    st.write(
-        px.bar(
-            df_bar, 
-            x='RLA_Nummer',
-            y='Material_kg',
-            color='Status',
-            text='Material_kg',
-            title='Lieferscheine der Regellichtaugen nach Status und Gewicht',
-            width=1700,
-            height=600
-            )
-        )
-
-else:
-    df_bar2 = lieferschein(df)
-    st.write(
-        px.bar(
-            df_bar2, 
-            x='rla_nummer',
-            y='anzahl_lieferscheine',
-            color='status',
-            text='anzahl_lieferscheine',
-            title='Lieferscheine der Regellichtaugen nach Status und Anuahl der Lieferscheine',
-            width=1700,
-            height=600
-            )
-        )
 
 col1, col2, col3 = st.columns(3)
 
@@ -111,7 +79,7 @@ with col2:
     values='counts',
     names='plz',
     labels='plz',
-    title='Lieferscheine Standort',
+    title='Lieferscheine nach Empfänger-Adresse',
     width=400
     ).update_traces(textinfo='value')
     st.write(fig2)
@@ -125,7 +93,7 @@ with col3:
         names='Type',
         labels='Type',
         title='Lieferschein Erfassung',
-            width=400
+        width=400
         ).update_traces(textinfo='value')
     )
     
@@ -191,4 +159,35 @@ else:
     )
 
 
+# create general chart
+sb2=st.selectbox('Darstellung', ['nach Gewicht','nach Anzahl_Lieferscheine']) 
 
+if sb2=='nach Gewicht':
+    df_bar = gewicht(df)
+    st.write(
+        px.bar(
+            df_bar, 
+            x='RLA_Nummer',
+            y='Material_kg',
+            color='Status',
+            text='Material_kg',
+            title='Lieferscheine der Regellichtaugen nach Status und Gewicht',
+            width=1700,
+            height=600
+            )
+        )
+
+else:
+    df_bar2 = lieferschein(df)
+    st.write(
+        px.bar(
+            df_bar2, 
+            x='rla_nummer',
+            y='anzahl_lieferscheine',
+            color='status',
+            text='anzahl_lieferscheine',
+            title='Lieferscheine der Regellichtaugen nach Status und Anuahl der Lieferscheine',
+            width=1700,
+            height=600
+            )
+        )
