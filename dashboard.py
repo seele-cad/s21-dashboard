@@ -26,9 +26,9 @@ df.reset_index(drop=True, inplace=True)
 # dashboard title
 st.title("S21 - Dashboard")
 
-sb=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
+sb1=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
 
-if sb=='Anzahl_Lieferscheine':
+if sb1=='Anzahl_Lieferscheine':
     ls=waa(df)
     st.write(
         px.bar(
@@ -58,31 +58,37 @@ else:
     )
 
 # create general chart
-df_bar = gewicht(df)
-fig0 = px.bar(
-    df_bar, 
-    x='RLA_Nummer',
-    y='Material_kg',
-    color='Status',
-    text='Material_kg',
-    width=1700,
-    height=600
-    )
-st.write(fig0)
+sb2=st.selectbox('Darstellung', ['nach Gewicht','nach Anzahl_Lieferscheine']) 
 
-df_bar2 = lieferschein(df)
-st.write(
-    px.bar(
-        df_bar2, 
-        x='rla_nummer',
-        y='anzahl_lieferscheine',
-        color='status',
-        text='anzahl_lieferscheine',
-        title='Lieferscheine der Regellichtaugen nach Status',
+if sb2=='nach Gewicht':
+df_bar = gewicht(df)
+    st.write(
+        px.bar(
+        df_bar, 
+        x='RLA_Nummer',
+        y='Material_kg',
+        color='Status',
+        text='Material_kg',
+        title='Lieferscheine der Regellichtaugen nach Status und Gewicht',
         width=1700,
         height=600
         )
-)
+    )
+
+else:
+    df_bar2 = lieferschein(df)
+    st.write(
+        px.bar(
+            df_bar2, 
+            x='rla_nummer',
+            y='anzahl_lieferscheine',
+            color='status',
+            text='anzahl_lieferscheine',
+            title='Lieferscheine der Regellichtaugen nach Status und Anuahl der Lieferscheine',
+            width=1700,
+            height=600
+            )
+        )
 
 col1, col2, col3 = st.columns(3)
 
@@ -124,7 +130,7 @@ with col3:
     )
     
 
-status = st.selectbox('Wähle Status', ['readytoship','shipped','warehouse', 'onsite', 'installed'])
+status = st.selectbox('Wähle Status', ['shipped','warehouse', 'onsite', 'installed'])
 
 if status == 'installed':
     df_hist = installed(df)
@@ -169,7 +175,7 @@ elif status == 'warehouse':
             color='anzahl_lieferscheine'
         )
     )
-elif status == 'shipped':
+else:
     df_shipped = shipped(df)
     st.write(
         px.bar(
@@ -184,36 +190,5 @@ elif status == 'shipped':
         )
     )
 
-else: None
 
-sb=st.selectbox('Einheit', ['Kilogramm','Anzahl_Lieferscheine'])
-
-if sb=='Anzahl_Lieferscheine':
-    ls=waa(df)
-    st.write(
-        px.bar(
-        ls, 
-        x='auftrag',
-        y='anzahl_lieferscheine',
-        color='status',
-        text='anzahl_lieferscheine',
-        title='Auftrag nach Anzahl_Lieferscheine',
-        width=850,
-        height=600
-        )
-    )
-else:
-    kg=kg(df)
-    st.write(
-        px.bar(
-        kg, 
-        x='Auftrag',
-        y='Material_kg',
-        color='Status',
-        text='Material_kg',
-        width=850,
-        height=600,
-        title='Auftrag nach Gewicht in kg'
-        )
-    )
 
