@@ -246,7 +246,7 @@ def kg(df):
             status_new.append(stat)
 
     diBar = {
-        'Auftrag': an,
+        'Projekt': an,
         'Status': status_new,
         'Material_kg': weights}
     
@@ -272,9 +272,9 @@ def waa(df):
             status_new.append(stat)
     
     diBar = {
-    'auftrag': auftrag_new,
-    'status': status_new,
-    'anzahl_lieferscheine': count_ls
+    'Projekt': auftrag_new,
+    'Status': status_new,
+    'Anzahl_Lieferscheine': count_ls
     }   
 
     df_bar = pd.DataFrame.from_dict(diBar)
