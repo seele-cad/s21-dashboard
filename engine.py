@@ -179,7 +179,7 @@ def shipped(df):
 def installed(df):
 
     df_installed = df[df['status']=='installed']
-    df_installed['date_installed']=pd.to_datetime(df_installed['date_installed'])
+    df_installed['date_installed']=pd.to_datetime(df_installed['date_installed'], format='%d.%m.%Y')
     df_installed.reset_index(drop=True, inplace=True)
     df_installed.set_index('date_installed', inplace=True)
     df_hist = df_installed['lieferschein'].resample('W').count().to_frame()
@@ -272,7 +272,7 @@ def waa(df):
             status_new.append(stat)
     
     diBar = {
-    'Projekt': auftrag_new,
+    'Bauteil': auftrag_new,
     'Status': status_new,
     'Anzahl_Lieferscheine': count_ls
     }   
