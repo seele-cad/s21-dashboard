@@ -37,7 +37,6 @@ if sb1=='Anzahl_Lieferscheine':
         y='Anzahl_Lieferscheine',
         color='Status',
         text='Anzahl_Lieferscheine',
-        title='Projekt nach Anzahl_Lieferscheine',
         width=850,
         height=600
         )
